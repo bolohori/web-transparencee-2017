@@ -1,0 +1,272 @@
+// Basic typographic units
+@body: 0.7rem;
+@line: 25px;
+@gutter: 1rem;
+@margin: 48px;
+
+// Fonts 
+.body-font(){
+  font-family: 'Raleway', sans-serif;
+}
+
+
+
+// Responsive max points
+// @xl-display is higher than 1440px;
+
+@l-display: 1440px;
+@m-display: 1280px;
+@s-display: 1024px;
+@tablet: 768px;
+@phone: 470px;
+
+
+// Colors
+@background: #ffffff;
+@black: #000000;
+@text: #333333;
+@blue: #677cf0;
+@green: #40b29a;
+@orange: #f9644f;
+@grey: #f2f2f2;
+
+@light: lighten(#000000, 60%);
+
+
+// Delays
+@delay-step: 0.125s;
+
+.small {
+  font-size: 0.6rem;
+  line-height: 0.9rem;
+}
+
+
+
+// Typographic scale
+@r: 2.71; 
+@n: 5;
+
+
+
+.typoscale(@i){
+  @thisSize: @body * pow(@r, @i/@n );
+  font-size: round(@thisSize*100)/100;
+}
+.size-0(){
+  .typoscale(-1);
+  letter-spacing: 0.01em;
+}
+.size-1(){
+  .typoscale(0);
+  line-height: 1rem;
+  letter-spacing: 0.015em;
+  font-weight: 200;
+
+}
+
+.lead {
+  font-size: 0.85rem;
+  line-height: 1.25rem;
+}
+
+.allcaps {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-size: 0.6rem;
+}
+
+.size-2(){
+  .typoscale(1);
+  line-height: 1rem;
+}
+.size-3(){
+  .typoscale(2);
+  line-height: 1.75rem;
+}
+.size-4(){
+  .typoscale(3);
+  line-height: 2rem;
+}
+.size-5(){
+  .typoscale(4);
+  line-height: 2rem;
+}
+
+
+.clearfix{
+  zoom:1;
+  &:before, &:after{ content:""; display:table; }
+  &:after{ clear: both; }
+}
+
+.width(@part){
+  width: @part * 100%;
+}
+
+.left(@part) {
+  margin-left: floor(@part * 10000)/ 100%;
+}
+
+.col(@part){
+  width: floor(@part * 10000)/ 100%;
+  padding-left: @gutter / 2;
+  padding-right: @gutter / 2;
+}
+
+.wrap {
+  flex-wrap: wrap;
+  display: flex;
+  margin-left: -(@gutter / 2);
+  margin-right: -(@gutter / 2);
+}
+
+
+
+.after() {
+  display: block;
+  content: "";
+  position: absolute;
+}
+
+.box-sizing(@boxmodel) {
+  -webkit-box-sizing: @boxmodel;
+     -moz-box-sizing: @boxmodel;
+      -ms-box-sizing: @boxmodel;
+          box-sizing: @boxmodel;
+}
+
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+.rounded() {
+  .border-radius(@rounded-corners);
+}
+.borderradius2(@topright: 0, @bottomright: 0, @bottomleft: 0, @topleft: 0) {
+  -webkit-border-top-right-radius: @topright;
+  -webkit-border-bottom-right-radius: @bottomright;
+  -webkit-border-bottom-left-radius: @bottomleft;
+  -webkit-border-top-left-radius: @topleft;
+  -moz-border-radius-topright: @topright;
+  -moz-border-radius-bottomright: @bottomright;
+  -moz-border-radius-bottomleft: @bottomleft;
+  -moz-border-radius-topleft: @topleft;
+  border-top-right-radius: @topright;
+  border-bottom-right-radius: @bottomright;
+  border-bottom-left-radius: @bottomleft;
+  border-top-left-radius: @topleft;
+}
+
+.scale(@ratio) {
+  -webkit-transform: scale(@ratio);
+      -ms-transform: scale(@ratio); // IE9 only
+       -o-transform: scale(@ratio);
+          transform: scale(@ratio);
+}
+
+.opacity(@opacity) {
+  opacity: @opacity / 100;
+  filter: ~"alpha(opacity=@{opacity})";
+}
+.noselect() {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.notransition() {
+  -moz-transition: none;
+  -webkit-transition: none;
+  -o-transition: color 0 ease-in;
+  transition: none;
+}
+
+.transition(@tming: 0.2s){
+  transition: all @tming ease;
+  -moz-transition: all @tming ease; /* Firefox 4 */
+  -webkit-transition: all @tming ease; /* Safari and Chrome */
+  -o-transition: all @tming ease; /* Opera */
+  -ms-transition: all @tming ease; 
+  -webkit-backface-visibility: hidden;
+}
+.transitionsimple(@transition){
+  transition: @transition;
+  -moz-transition: @transition; /* Firefox 4 */
+  -webkit-transition: @transition; /* Safari and Chrome */
+  -o-transition: @transition; /* Opera */
+  -ms-transition: @transition; 
+}
+
+.transition-property(@transition-property) {
+  -webkit-transition-property: @transition-property;
+          transition-property: @transition-property;
+}
+.transition-delay(@transition-delay) {
+  -webkit-transition-delay: @transition-delay;
+          transition-delay: @transition-delay;
+}
+.transition-duration(@transition-duration) {
+  -webkit-transition-duration: @transition-duration;
+          transition-duration: @transition-duration;
+}
+.transition-timing-function(@timing-function) {
+  -webkit-transition-timing-function: @timing-function;
+          transition-timing-function: @timing-function;
+}
+.transition-transform(@transition) {
+  -webkit-transition: -webkit-transform @transition;
+     -moz-transition: -moz-transform @transition;
+       -o-transition: -o-transform @transition;
+          transition: transform @transition;
+}
+
+.delay(@dtiming){
+  transition-delay: @dtiming;
+  -moz-transition-delay: @dtiming; 
+  -webkit-transition-delay: @dtiming; 
+  -o-transition-delay: @dtiming; 
+}
+.translate(@x; @y) {
+  -webkit-transform: translate(@x, @y);
+      -ms-transform: translate(@x, @y); // IE9 only
+       -o-transform: translate(@x, @y);
+          transform: translate(@x, @y);
+}
+.translate-rotate(@x; @y; @degrees) {
+   -webkit-transform: translate(@x, @y) rotate(@degrees);
+      -ms-transform: translate(@x, @y) rotate(@degrees); // IE9 only
+       -o-transform: translate(@x, @y) rotate(@degrees);
+          transform: translate(@x, @y) rotate(@degrees);
+}
+.rotate(@degrees) {
+  -webkit-transform: rotate(@degrees);
+      -ms-transform: rotate(@degrees); // IE9 only
+       -o-transform: rotate(@degrees);
+          transform: rotate(@degrees);
+}
+.freetransform(@content) {
+  -webkit-transform: @content;
+      -ms-transform: @content; // IE9 only
+       -o-transform: @content;
+          transform: @content;
+}
+.content-columns(@column-count; @column-gap) {
+  -webkit-column-count: @column-count;
+     -moz-column-count: @column-count;
+          column-count: @column-count;
+  -webkit-column-gap: @column-gap;
+     -moz-column-gap: @column-gap;
+          column-gap: @column-gap;
+}
+
+
+* {
+  .box-sizing(border-box);
+} 
+
+
