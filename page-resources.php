@@ -43,11 +43,17 @@ $src = get_template_directory_uri();
 							<?php
 							while ($query->have_posts()): $query->the_post();
 								$terms = get_the_terms(get_the_ID(), 'section');
+								$external = get_field('external_site');
+								if (empty($external)) {
+									$link = 'href="' . get_permalink() . '"';
+								} else {
+									$link = 'href="' . $external . '" target="_blank"';
+								}
 								?>
 								<div class="article">
 									<div class="article-container">
 										<div class="subtitle"><?php echo $terms[0]->name; ?></div>
-										<a class="article-title-link" href="<?php the_permalink(); ?>">
+										<a class="article-title-link" <?php echo $link; ?>>
 											<h2><?php the_title(); ?></h2>
 										</a>
 									</div>
@@ -94,9 +100,17 @@ $src = get_template_directory_uri();
 									?>
 									<div class="articles-column">
 										<ul class="articles-list">
-											<?php while ($query->have_posts()): $query->the_post(); ?>
-												<li><div><a href="<?php the_permalink(); ?>" class="article-link"><?php the_title(); ?></a></div></li>
-													<?php endwhile; ?>
+											<?php
+											while ($query->have_posts()): $query->the_post();
+												$external = get_field('external_site');
+												if (empty($external)) {
+													$link = 'href="' . get_permalink() . '"';
+												} else {
+													$link = 'href="' . $external . '" target="_blank"';
+												}
+												?>
+												<li><div><a <?php echo $link; ?> class="article-link"><?php the_title(); ?></a></div></li>
+														<?php endwhile; ?>
 										</ul>                 
 									</div>
 									<?php

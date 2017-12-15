@@ -55,7 +55,7 @@ $today = date('Ymd');
 						$logo = get_field('logo');
 						?>
 						<div class="upcoming-events">
-							<a class="event-anchor" name="<?php echo get_post_field( 'post_name' ) ?>"></a>
+							<a class="event-anchor" name="<?php echo get_post_field('post_name') ?>"></a>
 							<div class="upcoming-event">    
 								<div class="wrap">           
 									<div class="date-col">
@@ -91,23 +91,15 @@ $today = date('Ymd');
 
 				<?php
 				$args = array(
-						'post_type' => array('event'),
+						'post_type' => array('event-group'),
 						'posts_per_page' => 30,
-						'meta_query' => array(
-								array(
-										'key' => 'date_for_sorting',
-										'value' => $today,
-										'compare' => '<=',
-								)
-						),
-						'meta_key' => 'date_for_sorting',
-						'orderby' => 'meta_value_num',
-						'order' => 'DESC'
+						'orderby' => 'menu_order',
+						'order' => 'ASC',
 				);
 				$query = new WP_Query($args);
 				if ($query->have_posts()):
 					?>
-					<h3 class="division-header">Past events</h3>
+					<h3 class="division-header">Supported events</h3>
 
 					<div class="wrap past-events">
 
@@ -115,24 +107,15 @@ $today = date('Ymd');
 						while ($query->have_posts()): $query->the_post();
 							$website = get_field('website');
 							$photo = get_field('photo');
-							$logo = get_field('logo');
 							?>
-							<a class="event-anchor" name="<?php echo get_post_field( 'post_name' ) ?>"></a>
+							<a class="event-anchor" name="<?php echo get_post_field('post_name') ?>"></a>
 							<div class="event-link">
-								<?php if ($photo): ?>
-									<a href="<?php echo $website; ?>" class="image-link" target="_blank">
-										<img src="<?php echo $photo['sizes']['event']; ?>" alt="<?php the_title(); ?>">
-									</a>
-								<?php elseif ($logo): ?>
-									<a href="<?php echo $website; ?>" class="image-link" target="_blank">
-										<img src="<?php echo $logo['sizes']['large']; ?>" alt="<?php the_title(); ?>">
-									</a>
-								<?php endif; ?>
-								<a class="event-title-link" href="<?php echo $website; ?>"><h2><?php the_title(); ?></h2>
-									<div class="event-date"><?php echo date('F Y', strtotime(get_field('date_for_sorting'))); ?> | <?php the_field('place'); ?></div></a>
-
-								<div class="event-description"><?php the_field('about_new'); ?></div>
-								<a href="<?php echo $website; ?>" class="button">more</a>
+								<a href="<?php the_permalink() ?>" class="image-link">
+									<img src="<?php echo $photo['sizes']['event']; ?>" alt="<?php the_title(); ?>">
+								</a>
+								<a class="event-title-link" href="<?php the_permalink() ?>"><h2><?php the_title(); ?></h2></a>
+								<div class="event-description"><?php the_field('s1_text'); ?></div>
+								<a href="<?php the_permalink() ?>" class="button">more</a>
 							</div>
 							<?php
 						endwhile;

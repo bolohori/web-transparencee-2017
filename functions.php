@@ -11,11 +11,12 @@ add_image_size('home-box', 300, 200, array('center', 'top'));
 
 
 engine_register_post_type('Events', 'event', array('title'), true);
+engine_register_post_type('Events - group', 'event-group', array('title'), true);
 engine_register_post_type('Tools', 'project', array('title'), true);
 engine_register_post_type('News', 'news', array('title'), true);
-engine_register_post_type('Analysis', 'article', array('title'), true, 'analysis');
+engine_register_post_type('Resources', 'article', array('title'), true, 'analysis');
 engine_register_post_type('People', 'person', array('title'), true);
-engine_register_post_type('Community', 'organization', array('title'), true);
+engine_register_post_type('Organizations', 'organization', array('title'), true);
 engine_register_post_type('Scaled tool', 'scaled-tool', array('title'), true);
 
 engine_register_taxonomy('Filters', 'filter', array('event', 'project', 'tool', 'news', 'organization', 'person'));
@@ -119,3 +120,16 @@ function trans_first_paragraph($content) {
 }
 
 add_filter('the_content', 'trans_first_paragraph');
+
+
+
+function trans_post_update($post_id, $post, $update) {
+
+	$post_type = get_post_type($post_id);
+
+	if ('news' == $post_type) {
+		update_post_meta($post_id, 'date_for_sorting', get_the_date('Ymd', $post_id));
+	} 
+}
+
+add_action('save_post', 'trans_post_update', 10, 3);

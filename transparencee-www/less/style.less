@@ -67,6 +67,7 @@ a {
     .allcaps;
     color: @orange;
     font-weight: 700;
+
   }
   .article-title-link {
     font-size: 1rem;
@@ -444,6 +445,12 @@ a {
 }
 
 .section.events-list {
+	.event-anchor {
+		position:relative;
+		top:-85px;
+		visibility: hidden;
+	}
+
   .event-link {
     .col(1/2);
     margin-bottom: 2rem;
@@ -776,6 +783,9 @@ a {
     }
     .subtitle {
       margin-top: 0.5rem;
+			a {
+				color:#fff;
+			}
       .lead;
     }
   }
@@ -1054,9 +1064,21 @@ strong {
   padding-bottom: 5rem;
   padding-top: 4rem;
   .big-header {
-    text-transform: uppercase;
-    line-height: 3.2rem;
-    font-size: 3rem;
+    //text-transform: uppercase;
+    font-size:1.55rem;
+		line-height:1.1em;
+		
+		span {
+			font-size:2.3rem;
+		}
+		
+		@media all and (max-width:800px) {
+			span {
+				font-size:1.6rem;
+			}
+			font-size:1.3rem !important;
+			line-height:2.2rem;
+		}
   }
   .text-part {
     .col(2/3);
@@ -2215,9 +2237,9 @@ iframe {
 	}
 }
 .anchor {
-    position: relative;
-    top: -65px;
-    visibility: hidden;
+	position: relative;
+	top: -65px;
+	visibility: hidden;
 }
 
 .event-description {

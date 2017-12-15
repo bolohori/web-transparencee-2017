@@ -312,6 +312,7 @@ $src = get_template_directory_uri();
 						<?php
 						$args = array(
 								'post_type' => 'project',
+								'posts_per_page' => 150,
 						);
 
 						if ($country && $country != 'all') {

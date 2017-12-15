@@ -1,3 +1,10 @@
+<?php
+$external = get_field('external_site');
+if ($external) {
+	wp_redirect($external);
+}
+?>
+
 <?php get_header() ?>
 <?php $src = get_template_directory_uri(); ?>
 
@@ -55,12 +62,12 @@
 			</div>
 		<?php else: ?>
 			<?php
-			$next_term = get_terms( array(
+			$next_term = get_terms(array(
 					'taxonomy' => 'section',
 					'hide_empty' => false,
 					'exclude' => $terms[0]->term_id,
 					'fields' => 'ids'
-			) );
+							));
 			shuffle($next_term);
 			$args = array(
 					'post_type' => array('article'),
@@ -70,6 +77,17 @@
 									'taxonomy' => 'section',
 									'field' => 'term_id',
 									'terms' => $next_term[0],
+							),
+					),
+					'meta_query' => array(
+							'relation' => 'OR',
+							array(
+									'key' => 'external_site',
+									'value' => '',
+							),
+							array(
+									'key' => 'external_site',
+									'compare' => 'NOT EXISTS',
 							),
 					),
 					'orderby' => 'menu_order',

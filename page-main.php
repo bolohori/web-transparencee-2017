@@ -16,7 +16,7 @@
 			<div class="content">
 				<div class="wrap">
 					<div class="text-part">
-						<h2 class="big-header"><?php the_field('s1_big_header'); ?></h2>
+						<h2 class="big-header"><span><?php the_field('s1_big_header'); ?></span><br /><?php the_field('s1_big_header2'); ?></h2>
 						<div class="section-summary"><?php the_field('s1_text'); ?></div>
 						<a href="<?php the_field('s1_url'); ?>" class="button">more</a>
 					</div>
