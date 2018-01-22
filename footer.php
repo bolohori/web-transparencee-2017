@@ -30,11 +30,6 @@ global $couns;
           <div class="flag"><img src="<?php echo $src; ?>/img/flag.png" alt=""></div>
           <div class="flag-text">The&nbsp;project is possible thanks to the&nbsp;generosity of the&nbsp;U.&nbsp;S. Department of State</div>
         </div>
-        <div class="america" style="margin-top:2rem">
-          <div class="flag"><img src="<?php echo $src; ?>/img/Omidyar-Network-Logo-300x81.jpeg" alt=""></div>
-          <div class="flag-text"></div>
-        </div>
-
       </div>
 
       <div class="column-2">
