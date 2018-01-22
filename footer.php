@@ -20,8 +20,18 @@ global $couns;
             </a>
           </div>
           <div class="logo">
-            <a href="https://transparencee.org/organization/zasto-ne/">
-              <img src="<?php echo $src; ?>/img/zastone.png" alt="">
+            <a href="https://transparencee.org/organization/actionsee-network/">
+              <img src="<?php echo $src; ?>/img/actionsee-300x66.png" alt="">
+            </a>
+          </div>
+          <div class="logo">
+            <a href="https://transparencee.org/organization/opora/">
+              <img src="<?php echo $src; ?>/img/opora-logo.png" alt="">
+            </a>
+          </div>
+          <div class="logo">
+            <a href="https://transparencee.org/organization/k-monitor/">
+              <img src="<?php echo $src; ?>/img/kmonitor-logo.jpg" alt="">
             </a>
           </div>
         </div>
