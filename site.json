@@ -1,0 +1,46 @@
+{
+  "wp-version": "5.1.1",
+  "theme-git": "https://github.com/epforgpl/web-transparencee-2017.git",
+  "plugins": [
+  {
+    "version": "5.5.14",
+    "name": "advanced-custom-fields-pro"
+  },
+  {
+    "version": "6.87",
+    "name": "all-in-one-wp-migration"
+  },
+  {
+    "version": "3.6.8",
+    "name": "backwpup"
+  },
+  {
+    "version": "3.2.2",
+    "name": "duplicate-post"
+  },
+  {
+    "version": "2.6",
+    "name": "filenames-to-latin"
+  },
+  {
+    "version": "2.0.6",
+    "name": "force-regenerate-thumbnails"
+  },
+  {
+    "version": "3.1.2",
+    "name": "intuitive-custom-post-order"
+  },
+  {
+    "version": "1.4.7",
+    "name": "php-compatibility-checker"
+  },
+  {
+    "version": "1.0.19",
+    "name": "wp-piwik"
+  },
+  {
+    "version": "10.0.1",
+    "name": "wordpress-seo"
+  }
+]
+}
