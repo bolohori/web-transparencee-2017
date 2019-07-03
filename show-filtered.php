@@ -9,7 +9,7 @@ $type = $_POST['type'];
 
 if ($type == 'all' || $type == ''):
 	if ($topic && $topic != 'all') {
-		$deployed_by_ids = '';
+		$deployed_by_ids = [];
 		$args = array(
 				'post_type' => array('project'),
 				'posts_per_page' => 150,
