@@ -1,46 +1,38 @@
 {
-  "wp-version": "5.1.1",
+  "wp-version": "5.2.2",
   "theme-git": "https://github.com/epforgpl/web-transparencee-2017",
   "plugins": [
   {
-    "version": "5.5.14",
-    "name": "advanced-custom-fields-pro"
+    "name": "advanced-custom-fields-pro",
+    "version": "5.5.14"
   },
   {
-    "version": "6.87",
-    "name": "all-in-one-wp-migration"
+    "name": "duplicate-post",
+    "version": "3.2.2"
   },
   {
-    "version": "3.6.8",
-    "name": "backwpup"
+    "name": "filenames-to-latin",
+    "version": "2.6"
   },
   {
-    "version": "3.2.2",
-    "name": "duplicate-post"
+    "name": "force-regenerate-thumbnails",
+    "version": "2.0.6"
   },
   {
-    "version": "2.6",
-    "name": "filenames-to-latin"
+    "name": "intuitive-custom-post-order",
+    "version": "3.1.2"
   },
   {
-    "version": "2.0.6",
-    "name": "force-regenerate-thumbnails"
+    "name": "php-compatibility-checker",
+    "version": "1.4.7"
   },
   {
-    "version": "3.1.2",
-    "name": "intuitive-custom-post-order"
+    "name": "wp-piwik",
+    "version": "1.0.21"
   },
   {
-    "version": "1.4.7",
-    "name": "php-compatibility-checker"
-  },
-  {
-    "version": "1.0.19",
-    "name": "wp-piwik"
-  },
-  {
-    "version": "10.0.1",
-    "name": "wordpress-seo"
+    "name": "wordpress-seo",
+    "version": "11.5"
   }
 ]
 }
