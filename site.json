@@ -1,6 +1,6 @@
 {
   "wp-version": "5.1.1",
-  "theme-git": "https://github.com/epforgpl/web-transparencee-2017.git",
+  "theme-git": "https://github.com/epforgpl/web-transparencee-2017",
   "plugins": [
   {
     "version": "5.5.14",
